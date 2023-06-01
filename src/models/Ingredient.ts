@@ -1,4 +1,17 @@
-[
+import mongoose from "mongoose";
+
+export type IngredientType = {
+
+  _id?: string;
+  name: string;
+  strength?: string;
+  replacements?: string[];
+  description?: string;
+  cocktails: string[];
+  img?: string;
+};
+
+export const dummy_ingredients: IngredientType[] = [
   {
     "name": "absinthe",
     "strength": "45-74%",
@@ -12,7 +25,7 @@
       "corpse reviver no. 2",
       "death in the afternoon"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/absinthe"
   },
   {
     "name": "agave nectar",
@@ -27,7 +40,7 @@
       "paloma",
       "tequila sunrise"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/agave nectar"
   },
   {
     "name": "aguardiente",
@@ -41,7 +54,7 @@
       "coco loco",
       "llanero"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/aguardiente"
   },
   {
     "name": "amaretto liqueur",
@@ -55,7 +68,7 @@
       "godfather",
       "alabama slammer"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/amaretto liqueur"
   },
   {
     "name": "amaro nonino",
@@ -70,7 +83,7 @@
       "paper plane",
       "nonino sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/amaro nonino"
   },
   {
     "name": "angostura bitters",
@@ -84,7 +97,7 @@
       "manhattan",
       "trinidad sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/angostura bitters"
   },
   {
     "name": "aperol",
@@ -99,7 +112,7 @@
       "garibaldi",
       "aperol sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/aperol"
   },
   {
     "name": "apricot brandy",
@@ -113,7 +126,7 @@
       "army & navy",
       "flaming lamborghini"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/apricot brandy"
   },
   {
     "name": "bénédictine",
@@ -127,7 +140,7 @@
       "bénédictine sour",
       "monte carlo"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/bénédictine"
   },
   {
     "name": "black pepper",
@@ -140,7 +153,7 @@
       "black pepper martini",
       "black pepper bourbon smash"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/black pepper"
   },
   {
     "name": "bourbon",
@@ -155,7 +168,7 @@
       "old fashioned",
       "whiskey sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/bourbon"
   },
   {
     "name": "brambuie",
@@ -169,7 +182,7 @@
       "bobby burns",
       "highland sling"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/brambuie"
   },
   {
     "name": "brandy",
@@ -184,7 +197,7 @@
       "sidecar",
       "brandy sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/brandy"
   },
   {
     "name": "brown sugar",
@@ -198,7 +211,7 @@
       "dark 'n' stormy",
       "caipirinha"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/brown sugar"
   },
   {
     "name": "cachaça",
@@ -213,7 +226,7 @@
       "batida de côco",
       "leite de onça"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cachaça"
   },
   {
     "name": "calvados",
@@ -227,7 +240,7 @@
       "french 75",
       "calvados sidecar"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/calvados"
   },
   {
     "name": "campari",
@@ -242,7 +255,7 @@
       "americano",
       "boulevardier"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/campari"
   },
   {
     "name": "celery",
@@ -256,7 +269,7 @@
       "dirty martini",
       "the last word"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/celery"
   },
   {
     "name": "celery salt",
@@ -270,7 +283,7 @@
       "michelada",
       "red snapper"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/celery salt"
   },
   {
     "name": "chambord",
@@ -284,7 +297,7 @@
       "kir royale",
       "chambord collins"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/chambord"
   },
   {
     "name": "champagne",
@@ -298,7 +311,7 @@
       "mimosa",
       "french 75"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/champagne"
   },
   {
     "name": "citrus juice",
@@ -312,7 +325,7 @@
       "daiquiri",
       "whiskey sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/citrus juice"
   },
   {
     "name": "club soda",
@@ -326,7 +339,7 @@
       "tom collins",
       "mojito"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/club soda"
   },
   {
     "name": "cocktail cherry",
@@ -340,7 +353,7 @@
       "singapore sling",
       "tequila sunrise"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cocktail cherry"
   },
   {
     "name": "coconut milk",
@@ -354,7 +367,7 @@
       "painkiller",
       "coconut mojito"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/coconut milk"
   },
   {
     "name": "coffee liqueur",
@@ -368,7 +381,7 @@
       "white russian",
       "black russian"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/coffee liqueur"
   },
   {
     "name": "cognac",
@@ -383,7 +396,7 @@
       "french connection",
       "sazerac"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cognac"
   },
   {
     "name": "cointreau",
@@ -397,7 +410,7 @@
       "cosmopolitan",
       "white lady"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cointreau"
   },
   {
     "name": "cola",
@@ -411,7 +424,7 @@
       "cuba libre",
       "long island iced tea"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cola"
   },
   {
     "name": "cranberry juice",
@@ -425,7 +438,7 @@
       "sea breeze",
       "cape codder"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cranberry juice"
   },
   {
     "name": "cream",
@@ -439,7 +452,7 @@
       "irish coffee",
       "grasshopper"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cream"
   },
   {
     "name": "cream of coconut",
@@ -453,7 +466,7 @@
       "chi-chi",
       "coconaut"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/cream of coconut"
   },
   {
     "name": "crème de cacao",
@@ -467,7 +480,7 @@
       "brandy alexander",
       "chocolate martini"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/crème de cacao"
   },
   {
     "name": "crème de cassis",
@@ -481,7 +494,7 @@
       "kir royale",
       "bramble"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/crème de cassis"
   },
   {
     "name": "crème de menthe",
@@ -495,7 +508,7 @@
       "stinger",
       "chocolate mint martini"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/crème de menthe"
   },
   {
     "name": "crème de mure",
@@ -509,7 +522,7 @@
       "kentucky bramble",
       "corpse reviver no. 2"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/crème de mure"
   },
   {
     "name": "crème de violette",
@@ -523,7 +536,7 @@
       "blue moon",
       "violet fizz"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/crème de violette"
   },
   {
     "name": "curaçao",
@@ -538,7 +551,7 @@
       "mai tai",
       "zombie"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/curaçao"
   },
   {
     "name": "dry curaçao",
@@ -553,7 +566,7 @@
       "corpse reviver no. 1",
       "bijou"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/dry curaçao"
   },
   {
     "name": "egg white",
@@ -567,7 +580,7 @@
       "pisco sour",
       "ramos gin fizz"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/egg white"
   },
   {
     "name": "egg yolk",
@@ -581,7 +594,7 @@
       "brandy flip",
       "zabaione cocktail"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/egg yolk"
   },
   {
     "name": "elderflower cordial",
@@ -595,7 +608,7 @@
       "hugo",
       "garden of eden"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/elderflower cordial"
   },
   {
     "name": "espresso coffee",
@@ -609,7 +622,7 @@
       "irish coffee",
       "black russian"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/espresso coffee"
   },
   {
     "name": "falernum",
@@ -623,7 +636,7 @@
       "corn 'n' oil",
       "royal bermuda yacht club"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/falernum"
   },
   {
     "name": "fernet-branca",
@@ -637,7 +650,7 @@
       "toronto",
       "fernet sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/fernet-branca"
   },
   {
     "name": "fresh mint",
@@ -651,7 +664,7 @@
       "mint julep",
       "southside"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/fresh mint"
   },
   {
     "name": "galliano",
@@ -665,7 +678,7 @@
       "golden cadillac",
       "yellow bird"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/galliano"
   },
   {
     "name": "garlic",
@@ -679,7 +692,7 @@
       "dirty martini",
       "caesar"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/garlic"
   },
   {
     "name": "gin",
@@ -693,7 +706,7 @@
       "gin and tonic",
       "negroni"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/gin"
   },
   {
     "name": "ginger",
@@ -707,7 +720,7 @@
       "dark 'n' stormy",
       "ginger martini"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/ginger"
   },
   {
     "name": "ginger ale",
@@ -721,7 +734,7 @@
       "presbyterian",
       "rum buck"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/ginger ale"
   },
   {
     "name": "ginger beer",
@@ -735,7 +748,7 @@
       "dark 'n' stormy",
       "corn 'n' oil"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/ginger beer"
   },
   {
     "name": "gold rum",
@@ -749,7 +762,7 @@
       "piña colada",
       "daiquiri"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/gold rum"
   },
   {
     "name": "goslings black seal rum",
@@ -763,7 +776,7 @@
       "rum swizzle",
       "bermuda rum swizzle"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/goslings black seal rum"
   },
   {
     "name": "grand marnier",
@@ -777,7 +790,7 @@
       "cosmopolitan",
       "grand sidecar"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/grand marnier"
   },
   {
     "name": "grapefruit juice",
@@ -791,7 +804,7 @@
       "greyhound",
       "hemingway daiquiri"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/grapefruit juice"
   },
   {
     "name": "grapefruit-flavored soda",
@@ -805,7 +818,7 @@
       "greyhound",
       "paloma"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/grapefruit-flavored soda"
   },
   {
     "name": "grappa",
@@ -819,7 +832,7 @@
       "grappa old fashioned",
       "espresso grappa"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/grappa"
   },
   {
     "name": "green chartreuse",
@@ -833,7 +846,7 @@
       "bijou",
       "champs-élysées"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/green chartreuse"
   },
   {
     "name": "grenadine",
@@ -847,7 +860,7 @@
       "shirley temple",
       "jack rose"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/grenadine"
   },
   {
     "name": "grenadine syrup",
@@ -861,7 +874,7 @@
       "shirley temple",
       "jack rose"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/grenadine syrup"
   },
   {
     "name": "honey",
@@ -875,7 +888,7 @@
       "gold rush",
       "penicillin"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/honey"
   },
   {
     "name": "honey syrup",
@@ -889,7 +902,7 @@
       "gold rush",
       "penicillin"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/honey syrup"
   },
   {
     "name": "horseradish",
@@ -903,7 +916,7 @@
       "bullshot",
       "shucker's delight"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/horseradish"
   },
   {
     "name": "hot sauce",
@@ -917,7 +930,7 @@
       "michelada",
       "red snapper"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/hot sauce"
   },
   {
     "name": "ice",
@@ -929,7 +942,7 @@
     "cocktails": [
       "all cocktails"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/ice"
   },
   {
     "name": "irish whiskey",
@@ -943,7 +956,7 @@
       "whiskey sour",
       "irish mule"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/irish whiskey"
   },
   {
     "name": "kina lillet",
@@ -957,7 +970,7 @@
       "corpse reviver no. 2",
       "white negroni"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/kina lillet"
   },
   {
     "name": "lemon juice",
@@ -971,7 +984,7 @@
       "lemon drop martini",
       "tom collins"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/lemon juice"
   },
   {
     "name": "lemon twist",
@@ -985,7 +998,7 @@
       "tom collins",
       "gin sour"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/lemon twist"
   },
   {
     "name": "lillet blanc",
@@ -999,7 +1012,7 @@
       "corpse reviver no. 2",
       "white negroni"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/lillet blanc"
   },
   {
     "name": "lime",
@@ -1013,7 +1026,7 @@
       "mojito",
       "caipirinha"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/lime"
   },
   {
     "name": "lime juice",
@@ -1027,7 +1040,7 @@
       "daiquiri",
       "gimlet"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/lime juice"
   },
   {
     "name": "london dry gin",
@@ -1041,7 +1054,7 @@
       "negroni",
       "gin and tonic"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/london dry gin"
   },
   {
     "name": "maraschino",
@@ -1055,7 +1068,7 @@
       "hemingway daiquiri",
       "martinez"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/maraschino"
   },
   {
     "name": "maraschino cherry",
@@ -1069,7 +1082,7 @@
       "manhattan",
       "singapore sling"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/maraschino cherry"
   },
   {
     "name": "mezcal",
@@ -1083,7 +1096,7 @@
       "mezcal negroni",
       "oaxaca old fashioned"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/mezcal"
   },
   {
     "name": "mint leaves",
@@ -1097,7 +1110,7 @@
       "mint julep",
       "southside"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/mint leaves"
   },
   {
     "name": "olive",
@@ -1111,7 +1124,7 @@
       "dirty martini",
       "gibson"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/olive"
   },
   {
     "name": "orange bitters",
@@ -1125,7 +1138,7 @@
       "negroni",
       "martini"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/orange bitters"
   },
   {
     "name": "orange flower water",
@@ -1139,7 +1152,7 @@
       "corpse reviver no. 2",
       "tom collins"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/orange flower water"
   },
   {
     "name": "orange juice",
@@ -1153,7 +1166,7 @@
       "mimosa",
       "tequila sunrise"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/orange juice"
   },
   {
     "name": "orange liqueur",
@@ -1167,7 +1180,7 @@
       "sidecar",
       "cosmopolitan"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/orange liqueur"
   },
   {
     "name": "orgeat syrup",
@@ -1181,7 +1194,7 @@
       "zombie",
       "scorpion"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/orgeat syrup"
   },
   {
     "name": "peach purée",
@@ -1195,7 +1208,7 @@
       "sex on the beach",
       "fuzzy navel"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/peach purée"
   },
   {
     "name": "peach schnapps",
@@ -1209,7 +1222,7 @@
       "fuzzy navel",
       "woo woo"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/peach schnapps"
   },
   {
     "name": "peruvian pisco",
@@ -1223,7 +1236,7 @@
       "pisco punch",
       "chilcano"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/peruvian pisco"
   },
   {
     "name": "peychaud’s bitters",
@@ -1237,7 +1250,7 @@
       "vieux carré",
       "ramos gin fizz"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/peychaud’s bitters"
   },
   {
     "name": "pineapple juice",
@@ -1251,7 +1264,7 @@
       "painkiller",
       "bahama mama"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/pineapple juice"
   },
   {
     "name": "prosecco",
@@ -1265,7 +1278,7 @@
       "mimosa",
       "aperol spritz"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/prosecco"
   },
   {
     "name": "raspberry liqueur",
@@ -1279,7 +1292,7 @@
       "raspberry collins",
       "raspberry margarita"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/raspberry liqueur"
   },
   {
     "name": "raspberry syrup",
@@ -1293,7 +1306,7 @@
       "raspberry collins",
       "raspberry margarita"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/raspberry syrup"
   },
   {
     "name": "red chili pepper",
@@ -1307,7 +1320,7 @@
       "red snapper",
       "diablo"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/red chili pepper"
   },
   {
     "name": "red vermouth",
@@ -1321,7 +1334,7 @@
       "manhattan",
       "boulevardier"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/red vermouth"
   },
   {
     "name": "red wine",
@@ -1335,7 +1348,7 @@
       "mulled wine",
       "kalimotxo"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/red wine"
   },
   {
     "name": "ruby port",
@@ -1349,7 +1362,7 @@
       "ruby port smash",
       "port flip"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/ruby port"
   },
   {
     "name": "rum",
@@ -1363,7 +1376,7 @@
       "daiquiri",
       "piña colada"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/rum"
   },
   {
     "name": "rye whiskey",
@@ -1377,7 +1390,7 @@
       "old fashioned",
       "sazerac"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/rye whiskey"
   },
   {
     "name": "salt",
@@ -1391,7 +1404,7 @@
       "salty dog",
       "bloody mary"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/salt"
   },
   {
     "name": "scotch whisky",
@@ -1405,7 +1418,7 @@
       "blood and sand",
       "rusty nail"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/scotch whisky"
   },
   {
     "name": "simple syrup",
@@ -1419,7 +1432,7 @@
       "daiquiri",
       "tom collins"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/simple syrup"
   },
   {
     "name": "soda water",
@@ -1433,7 +1446,7 @@
       "gin and tonic",
       "tom collins"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/soda water"
   },
   {
     "name": "sparkling wine",
@@ -1447,7 +1460,7 @@
       "french 75",
       "bellini"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/sparkling wine"
   },
   {
     "name": "sugar",
@@ -1461,7 +1474,7 @@
       "daiquiri",
       "margarita"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/sugar"
   },
   {
     "name": "sugar cane juice",
@@ -1475,7 +1488,7 @@
       "ti' punch",
       "daiquiri"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/sugar cane juice"
   },
   {
     "name": "sugar syrup",
@@ -1489,7 +1502,7 @@
       "daiquiri",
       "tom collins"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/sugar syrup"
   },
   {
     "name": "sweet vermouth",
@@ -1503,7 +1516,7 @@
       "negroni",
       "boulevardier"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/sweet vermouth"
   },
   {
     "name": "tequila",
@@ -1517,7 +1530,7 @@
       "tequila sunrise",
       "paloma"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/tequila"
   },
   {
     "name": "tomato juice",
@@ -1531,7 +1544,7 @@
       "michelada",
       "red snapper"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/tomato juice"
   },
   {
     "name": "triple sec",
@@ -1545,7 +1558,7 @@
       "cosmopolitan",
       "sidecar"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/triple sec"
   },
   {
     "name": "vermouth",
@@ -1559,7 +1572,7 @@
       "manhattan",
       "negroni"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/vermouth"
   },
   {
     "name": "vodka",
@@ -1573,7 +1586,7 @@
       "moscow mule",
       "bloody mary"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/vodka"
   },
   {
     "name": "water",
@@ -1587,7 +1600,7 @@
       "vodka soda",
       "tom collins"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/water"
   },
   {
     "name": "whiskey",
@@ -1602,7 +1615,7 @@
       "whiskey sour",
       "manhattan"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/whiskey"
   },
   {
     "name": "white rum",
@@ -1616,7 +1629,7 @@
       "piña colada",
       "daiquiri"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/white rum"
   },
   {
     "name": "worcestershire sauce",
@@ -1630,7 +1643,7 @@
       "caesar",
       "michelada"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/worcestershire sauce"
   },
   {
     "name": "yellow chartreuse",
@@ -1644,6 +1657,37 @@
       "bijou",
       "champs-élysées"
     ],
-    "img": ""
+    "img": "www.thecocktaildb.com/images/ingredients/yellow chartreuse"
   }
-]
+];
+
+const ingredientSchema = new mongoose.Schema({
+
+  name: {         
+    type: String,
+    required: true
+  },
+  strength: {     
+    type: String
+  },
+  replacements: { 
+    type: [String]
+  },
+  description: {  
+    type: String
+  },
+  cocktails: {    
+    type: [String],
+    required: true
+  },
+  img: {         
+    type: String
+  }
+});
+
+export const Ingredient = mongoose.model("Ingredient", ingredientSchema);
+
+
+
+
+
