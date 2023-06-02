@@ -66,14 +66,18 @@ async (req: Request, res: Response) => {
         const cocktailRegex = new RegExp(`.*${req.query.cocktail}.*`, "i");
         var ingredients = await Ingredient
         .find({ 'cocktails': { $in: [cocktailRegex] } });
-    } else {
-        if(req.query.strength === ""){
+    } else if (req.query.strength) {
+        if(req.query.strength === "0"){
 
             var ingredients = await Ingredient.find({strength: ""});
         } else {
+
             const strengthRegex = new RegExp(`.*${req.query.strength}.*`, "i");
             var ingredients = await Ingredient.find({strength: strengthRegex});
-        }
+        }  
+    } else {
+
+        var ingredients = await Ingredient.find();
     }
     if(ingredients.length == 0){
         return res.status(404).json({message: "no ingredients found.."})
