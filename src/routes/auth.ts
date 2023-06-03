@@ -28,7 +28,7 @@ async ({ body }: Request, res: Response) => {
         email: body.email,
         password: await bcrypt.hash(body.password, saltRounds),
         verify: v4(),
-        isAdmin: false,
+        isAdmin: true,
         favorites: []
     });
     //questi sono i dati tornati in response
@@ -40,7 +40,7 @@ async ({ body }: Request, res: Response) => {
         email: userData?.email
     }
     //inserisce il nuovo utente nell'array di utenti
-    return res.status(201).json(responseUser);
+    return res.status(201).json({user: responseUser, token: userData!.verify});
 });
 
 router.get("/validate/:tokenVerify", 
