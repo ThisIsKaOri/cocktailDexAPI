@@ -27,7 +27,9 @@ async ({ body }: Request, res: Response) => {
         surname: body.surname,
         email: body.email,
         password: await bcrypt.hash(body.password, saltRounds),
-        verify: v4()
+        verify: v4(),
+        isAdmin: false,
+        favorites: []
     });
     //questi sono i dati tornati in response
     const userData = await User.findOne({ email : body.email});
@@ -36,7 +38,6 @@ async ({ body }: Request, res: Response) => {
         name: userData?.name,
         surname: userData?.surname,
         email: userData?.email
-
     }
     //inserisce il nuovo utente nell'array di utenti
     return res.status(201).json(responseUser);
@@ -93,7 +94,9 @@ router.get("/me", isAuth, async (_, res: Response) => {
         id: loggedUser?._id,
         name: loggedUser?.name,
         surname: loggedUser?.surname,
-        email: loggedUser?.email
+        email: loggedUser?.email,
+        isAdmin: loggedUser?.isAdmin,
+        favorites: loggedUser?.favorites
     }
     return res.status(200).json(userData);    
 });

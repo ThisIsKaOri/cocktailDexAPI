@@ -31,10 +31,8 @@ export const catchErrors = (req: Request, res: Response, next: NextFunction) => 
 };
 
 export const userValidation = [
-    body("name").notEmpty().withMessage("name value required"),
-    body("surname").notEmpty().withMessage("surname value required"),
-    body("email").isEmail().withMessage("invalid email"),
-    body("password").isLength({ min: 4 }).withMessage("short password"),
+    body("email").notEmpty().isEmail().withMessage("required email"),
+    body("password").notEmpty().isLength({ min: 4 }).withMessage("short password"),
 ];
 
 export const credentialsValidation = [
