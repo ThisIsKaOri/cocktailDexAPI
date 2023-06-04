@@ -28,7 +28,7 @@ async ({ body }: Request, res: Response) => {
         email: body.email,
         password: await bcrypt.hash(body.password, saltRounds),
         verify: v4(),
-        isAdmin: true,
+        isAdmin: false,
         favorites: []
     });
     //questi sono i dati tornati in response
@@ -59,7 +59,7 @@ async ({ params }, res: Response) => {
     return res.status(400).json({message: "invalid token.."});
 });
 
-router.post("/login", 
+router.post("/signin", 
 credentialsValidation, catchErrors,
 async ({ body }: Request, res: Response) => {
     //questo serve ad autenticarsi, deve ricevere email e password
@@ -70,7 +70,7 @@ async ({ body }: Request, res: Response) => {
     //se l'utente che sta tentando di loggarsi è registrato controlla la password
     if(registeredUser) {
         if(registeredUser.verify){
-            return res.status(401).json({message: "email is not verified.."})
+            return res.status(403).json({message: "email is not verified.."})
         }
         const pwdMatch = await bcrypt.compare(credentials.password, registeredUser.password as string);
         //se la password matcha gli assegna un token JWT            
@@ -81,7 +81,8 @@ async ({ body }: Request, res: Response) => {
                 {expiresIn: "24h"}
             );
             await User.updateOne({email: registeredUser.email}, { $set: { token: newToken }});
-            return res.status(200).json({ message: "user logged in..", token: newToken });
+            return res.status(200)
+            .json({ message: "user logged in..", user: registeredUser });
         };
         return res.status(401).json({message: "invalid credentials.."});        
     }; 
