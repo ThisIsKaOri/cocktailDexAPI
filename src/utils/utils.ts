@@ -42,15 +42,15 @@ export const credentialsValidation = [
 
 export const cocktailValidation = [
     body('name').isString().notEmpty().withMessage('Invalid name value'),
-    body('recipe.*.ingredient').isString().notEmpty().withMessage('Invalid ingredient name'),
-    body('recipe.*.qty').optional().isString().notEmpty().withMessage('Invalid qty value'),
-    body('recipe.*.oz').optional().isString().notEmpty().withMessage('Invalid oz value'),
-    body('alcoholic').isBoolean().withMessage('Invalid alcoholic value'),
+    //body('recipe.*.ingredient').optional().isString().notEmpty().withMessage('Invalid ingredient name'),
+    //body('recipe.*.qty').optional().isString().notEmpty().withMessage('Invalid qty value'),
+    //body('recipe.*.oz').optional().isString().notEmpty().withMessage('Invalid oz value'),
+    body('alcoholic').optional().isBoolean().withMessage('Invalid alcoholic value'),
     body('ibaFamily').optional().isString().notEmpty().withMessage('Invalid ibaFamily name'),
     body('family').optional().isString().notEmpty().withMessage('Invalid family name'),
-    body('glass').isString().notEmpty().withMessage('Invalid glass name'),
-    body('method').isString().notEmpty().withMessage('Invalid method value'),
-    body('garnish').isString().notEmpty().withMessage('Invalid garnish value'),
+    body('glass').optional().isString().notEmpty().withMessage('Invalid glass name'),
+    body('method').optional().isString().notEmpty().withMessage('Invalid method value'),
+    body('garnish').optional().isString().notEmpty().withMessage('Invalid garnish value'),
     body('history').optional().isString().notEmpty().withMessage('Invalid history value'),
     body('variants.*').optional().isString().notEmpty().withMessage('Invalid variant value'),
     body('img').optional().isString().notEmpty().withMessage('Invalid img value')

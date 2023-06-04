@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 type RecipeIgredient = {
 
-    ingredient: string;
+    ingredient?: string;
     qty?: string;
     oz?: string;
 };
@@ -11,13 +11,13 @@ export type CocktailType = {
 
     _id?: string;
     name: string;
-    alcoholic: boolean;
+    alcoholic?: boolean;
     ibaFamily?: string;
     family?: string;
-    recipe: RecipeIgredient[];
-    glass: string;
-    method: string;
-    garnish: string;
+    recipe?: RecipeIgredient[];
+    glass?: string;
+    method?: string;
+    garnish?: string;
     history?: string;
     variants?: string[],
     img?: string;
@@ -2777,16 +2777,9 @@ export const dummy_cocktails: CocktailType[] = [
 
 const recipeIngredientSchema = new mongoose.Schema({
 
-    ingredient: {
-        type: String,
-        required: true,
-    },
-    qty: {
-        type: String,
-    },
-    oz: {
-        type: String
-    }
+    ingredient: String,
+    qty: String,
+    oz: String
 });
 
 const cocktailSchema = new mongoose.Schema({
@@ -2795,28 +2788,13 @@ const cocktailSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    alcoholic: {
-        type: Boolean,
-        required: true,
-    },
+    alcoholic: Boolean,
     ibaFamily: String,
     family: String,
-    recipe: {
-        type: [recipeIngredientSchema],
-        required: true,
-    },
-    glass: {
-        type: String,
-        required: true,
-    },
-    method: {
-        type: String,
-        required: true,
-    },
-    garnish: {
-        type: String,
-        required: true,
-    },
+    recipe: [recipeIngredientSchema],
+    glass: String,
+    method: String,
+    garnish: String,
     history: String,
     variants: [String],
     img: String,
