@@ -8,7 +8,7 @@ const router = express();
 
 //create cocktail
 router.post("/", 
-cocktailValidation, catchErrors, isAuth,
+catchErrors, isAuth,
 async ({ body }: Request, res: Response) => { 
     const { loggedUser } = res.locals; //res.locals.loggedUser esce da isAuth
     //controlliamo se l'utente é validato
@@ -53,7 +53,7 @@ async ({ body }: Request, res: Response) => {
         //e la ritorniamo
         return res.status(201).json(responseCocktail);
     };
-    return res.status(405).json({message: "user not verified.."});
+    return res.status(403).json({message: "user not verified.."});
 });
 
 //read cocktail (query filtering)
