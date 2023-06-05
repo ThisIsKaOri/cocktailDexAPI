@@ -1670,19 +1670,13 @@ const ingredientSchema = new mongoose.Schema({
   strength: {     
     type: String
   },
-  replacements: { 
-    type: [String]
-  },
-  description: {  
-    type: String
-  },
+  replacements: [String],
+  description: String,
   cocktails: {    
     type: [String],
     required: true
   },
-  img: {         
-    type: String
-  }
+  img: String
 });
 
 export const Ingredient = mongoose.model("Ingredient", ingredientSchema);

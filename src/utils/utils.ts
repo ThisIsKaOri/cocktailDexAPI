@@ -58,9 +58,9 @@ export const cocktailValidation = [
 
 export const ingredientValidation = [
     body('name').isString().notEmpty().withMessage('Invalid ingredient name'),
-    body('sterength').optional().isString().notEmpty().withMessage('Invalid strength value'),
-    body('replacements.*').optional().isString().notEmpty().withMessage('Invalid replacements value'),
-    body('description').optional().isString().notEmpty().withMessage('Invalid description value'),
+    body('sterength').optional().isString().withMessage('Invalid strength value'),
+    body('replacements.*').optional().isString().withMessage('Invalid replacements value'),
+    body('description').optional().isString().withMessage('Invalid description value'),
     body('cocktails.*').isString().notEmpty().withMessage('Invalid cocktails value'),
-    body('img').optional().isString().notEmpty().withMessage('Invalid img value')
+    body('img').optional().isString().withMessage('Invalid img value')
 ];

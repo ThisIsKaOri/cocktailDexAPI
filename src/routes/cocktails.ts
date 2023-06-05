@@ -8,7 +8,7 @@ const router = express();
 
 //create cocktail
 router.post("/", 
-catchErrors, isAuth,
+cocktailValidation, catchErrors, isAuth,
 async ({ body }: Request, res: Response) => { 
     const { loggedUser } = res.locals; //res.locals.loggedUser esce da isAuth
     //controlliamo se l'utente é validato
